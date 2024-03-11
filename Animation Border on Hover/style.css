@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  gap: 5vw;
+}
+
+.animated-card1,
+.animated-card2 {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 350px;
+  height: 500px;
+  background: #222;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+span {
+  font-size: 10rem;
+  color: rgba(254, 254, 254, 0.1);
+  z-index: 10;
+}
+
+.text {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: rgb(189, 192, 195);
+}
+
+.animated-card1::before {
+  position: absolute;
+  content: "";
+  width: 350px;
+  height: 500px;
+  background-color: tomato;
+  border-radius: 11px;
+  z-index: -1;
+  transition: 0.3s;
+  animation: animate 2s linear infinite;
+}
+.animated-card1:hover::before {
+  width: 362px;
+  height: 512px;
+}
+
+@keyframes animate {
+  50% {
+    filter: hue-rotate(350deg);
+  }
+}
+
+.animated-card2 {
+  overflow: hidden;
+}
+.animated-card2::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 180%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.animated-card2:hover::before {
+  animation: animate2 2s linear infinite;
+}
+
+@keyframes animate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-card2::after {
+  position: absolute;
+  content: "";
+  inset: 5px;
+  border-radius: 10px;
+  background: #222;
+}
